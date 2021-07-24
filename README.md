@@ -1,57 +1,58 @@
-# Sudoku verifier and solver
+# Sudoku verifier and simple solver
+
+Written by: Angelina Tang
+Due: July 23rd, 2021
+Project: P2: Multi-Threaded Sudoku Validator
 
 Works on sudoku puzzles of any size.
 Uses multiple threads to check if a puzzle is valid.
 
-For puzzles that have any "0"s, tries to find a valid number for the 0. Can solve simple puzzles where no backtracking is required.
+For puzzles that have one "0"s, tries to find a valid number for the 0. Can solve simple puzzles where there is only one zero.
 
-2x2 puzzle
+Includes following text cases:
 
+- puzzle2-invalid.txt
 ```
-3 0 | 0 1
-2 1 | 0 0
----------
-0 0 | 0 2
-4 2 | 1 0
+3 4 2 2
+2 1 3 4
+1 3 4 2
+4 2 1 3
 ```
-Finds grid[1][2] as 4, grid[4][4] as 3
+- puzzle2-valid.txt
 ```
-3 4 | 0 1
-2 1 | 0 0
----------
-0 0 | 0 2
-4 2 | 1 3
+3 4 2 1
+2 1 3 4
+1 3 4 2
+4 2 1 3
 ```
-Finds grid[1][3] ad 2, grid[3][1] as 1, grid[3][2] as 3
+- puzzle5-invalid.txt
 ```
-3 4 | 2 1
-2 1 | 0 0
----------
-1 3 | 0 2
-4 2 | 1 3
+3 4 2 1 5
+2 1 3 4 5
+1 3 4 2 5
+4 2 1 3 5
 ```
-Finds grid[2][4] as 4, grid[3][3] ad 4
+- puzzle9-fill-one-valid.txt
 ```
-3 4 | 2 1
-2 1 | 0 4
----------
-1 3 | 4 2
-4 2 | 1 3
+6 2 4 5 3 9 1 8 7
+5 1 9 7 2 8 6 3 4
+8 3 7 6 1 4 2 9 5
+1 4 3 8 6 5 7 2 9
+9 5 8 2 4 7 3 6 1
+7 6 2 3 0 1 4 5 8
+3 7 1 9 5 6 8 4 2
+4 9 6 1 8 2 5 7 3
+2 8 5 4 7 3 9 1 6
 ```
-Finds grid[2][3] as 3
+- puzzle9-valid.txt
 ```
-3 4 | 2 1
-2 1 | 3 4
----------
-1 3 | 4 2
-4 2 | 1 3
-```
-
-The current version would not be able to solve a more complex puzzle, such as 
-```
-3 0 | 0 0
-2 1 | 0 0
----------
-0 0 | 0 0
-4 2 | 1 0
+6 2 4 5 3 9 1 8 7
+5 1 9 7 2 8 6 3 4
+8 3 7 6 1 4 2 9 5
+1 4 3 8 6 5 7 2 9
+9 5 8 2 4 7 3 6 1
+7 6 2 3 9 1 4 5 8
+3 7 1 9 5 6 8 4 2
+4 9 6 1 8 2 5 7 3
+2 8 5 4 7 3 9 1 6
 ```
