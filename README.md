@@ -4,6 +4,8 @@
 - Due: July 23rd, 2021
 - Project: P2: Multi-Threaded Sudoku Validator
 
+To run: run the runit.sh file
+
 Works on sudoku puzzles of any size.
 Uses multiple threads to check if a puzzle is valid.
 
